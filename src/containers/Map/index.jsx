@@ -9,14 +9,18 @@ const Img = styled.img`
   overflow-x: hidden;
   overflow-y: hidden;
   max-width: 100%;
+  `;
+const Container = styled.div`
+  position: relative;
 `;
 
 class MainMap extends React.Component {
   render() {
     return (
-      <div>
+      <Container>
         <Img src={Map} alt="mapa" />
-      </div>
+        {React.Children.toArray(this.props.children)}
+      </Container>
     );
   }
 }
