@@ -10,7 +10,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter basename="/portfolio/">
+    <BrowserRouter>
       {routes}
     </BrowserRouter>
   </Provider>,
