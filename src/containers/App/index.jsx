@@ -1,28 +1,17 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { createStructuredSelector } from 'reselect';
-import {Links} from '../../components/Links';
+import { Route, Switch } from 'react-router-dom';
+import HomePage from '../HomePage';
+import MainMenu from './MainMenu';
 
-/* eslint-disable react/prefer-stateless-function */
-class App extends React.Component {
+const App = () => (
+  <div>
+    <MainMenu />
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route exact path="/:map/:id" component={HomePage} />
+      <Route component={HomePage} />
+    </Switch>
+  </div>
+);
 
-  render() {
-    return (
-      <div>
-        <Links />
-      </div>
-    );
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-  };
-}
-
-const mapStateToProps = createStructuredSelector({
-
-});
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default App;

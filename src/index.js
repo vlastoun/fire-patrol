@@ -4,14 +4,14 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 import store from './store';
-import routes from './routes';
+import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      {routes}
+      <App />
     </BrowserRouter>
   </Provider>,
   document.getElementById('root'));

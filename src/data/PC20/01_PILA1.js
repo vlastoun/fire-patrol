@@ -1,7 +1,8 @@
 /* eslint-disable */
 import img1 from './01.png'
 export const OBJ_01_PILA = {
-  id: '01',
+  id: 1,
+  label: '01',
   group: 1,
   name: 'Pila č.1',
   so: '20-50.1',
@@ -18,7 +19,7 @@ export const OBJ_01_PILA = {
   `
 Konstrukce objektu ocelový a betonový skelet, obvodové stěny panelové, obložené sendvičovým plechem, střešní krytina nehořlavá.
 
-Objekty mají tyto sekce:
+## Objekty mají tyto sekce:
 * podzemní prostory, v nichž se nachází pohony pil
 * pozemní (+0,0 m) s elektrorozvodnou a skladem
 * nadzemní (+3,8 m), kde se nachází velíny

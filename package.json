@@ -8,6 +8,7 @@
     "immutable": "^3.8.1",
     "marksy": "^5.0.0",
     "prop-types": "^15.5.10",
+    "ramda": "^0.24.1",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-addons-transition-group": "^15.6.0",

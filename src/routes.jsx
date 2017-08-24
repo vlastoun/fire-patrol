@@ -19,8 +19,7 @@ import HomePage from './containers/HomePage';
 
 const routes = (
   <div>
-    <App />
-    <Route exact path="/" component={HomePage} />
+
   </div>
 );
 

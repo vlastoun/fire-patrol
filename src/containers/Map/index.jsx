@@ -13,34 +13,25 @@ const Container = styled.div`
   position: relative;
 `;
 
-class MainMap extends React.Component {
-  constructor(prop) {
-    super(prop);
-    this.mapObjectsToPoints = this.mapObjectsToPoints.bind(this);
-  }
-  mapObjectsToPoints(){
-    const { buildings } = this.props;
-    return buildings.map((object) => (<Point
-      key={object.id}
-      {...object}
-    />));
-  }
-  render() {
-    return (
-      <Container>
-        <Img src={Map} alt="mapa" onClick={this.hideInfos}/>
-        {this.mapObjectsToPoints()}
-        {React.Children.toArray(this.props.children)}
-      </Container>
-    );
-  }
-}
+const MainMap = ({ buildings, hideInfos }) => (
+  <Container>
+    <Img src={Map} alt="mapa" onClick={hideInfos}/>
+    {buildings.map((object) => (
+      <Point
+        key={object.id}
+        {...object}
+      />
+    ))}
+  </Container>
+);
 
 MainMap.propTypes = {
   buildings: PropTypes.array.isRequired,
-  children: PropTypes.object,
+  hideInfos: PropTypes.func,
 };
+
 MainMap.defaultProps = {
-  children: null,
+  hideInfos: () => console.log('NO FNC MAN'),
 };
+
 export default MainMap;

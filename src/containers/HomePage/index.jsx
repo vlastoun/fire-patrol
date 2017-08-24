@@ -9,12 +9,19 @@ import {group, objects} from '../../data';
 const Header = styled.h2`
   background-color: #00ff00;
 `;
+
+const mockFnc = () => console.log('Not implemented!');
+
+
 /* eslint-disable react/prefer-stateless-function */
 class HomePage extends React.Component {
   render() {
     return (
       <div>
-        <Map buildings={objects}/>
+        <Map
+          buildings={objects}
+          hideInfos={mockFnc}
+        />
       </div>
     );
   }
