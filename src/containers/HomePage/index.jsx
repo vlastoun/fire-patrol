@@ -12,14 +12,10 @@ const Header = styled.h2`
 /* eslint-disable react/prefer-stateless-function */
 class HomePage extends React.Component {
   render() {
-    console.log(objects);
-    console.log(group);
     return (
       <div>
         <Header>Test</Header>
-        <Map>
-          <Point left={650} top={258} number="48" />
-        </Map>
+        <Map buildings={objects}/>
         <Header>Test</Header>
       </div>
     );

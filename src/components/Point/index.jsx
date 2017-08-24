@@ -1,7 +1,8 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Wrapper from './point';
-import styled from 'styled-components';
 /* eslint-disable react/prefer-stateless-function */
 /* eslint-disable no-console */
 const Text = styled.p`
@@ -18,8 +19,8 @@ class Point extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      height: 1, 
-      width: 1, 
+      height: 1,
+      width: 1,
       coefficient: 1,
     };
     this.updateDimensions = this.updateDimensions.bind(this);
@@ -38,21 +39,24 @@ class Point extends React.Component {
     window.removeEventListener('resize', this.calculateCoeficient);
   }
   updateDimensions() {
-    this.setState({width: window.innerWidth, height: window.innerHeight});
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
   }
   calculateCoeficient() {
     const width = window.innerWidth;
     const imageWidth = IMG_WIDTH;
     const calculatedCoefficient = (width / imageWidth);
-    this.setState({coefficient: calculatedCoefficient});
+    this.setState({ coefficient: calculatedCoefficient });
   }
   render() {
-    const { top, left} = this.props;
+    const { top, left, group, id } = this.props;
     const calcTop = (top / IMG_HEIGHT) * 100;
     const calcLeft = (left / IMG_WIDTH) * 100;
-    console.log(calcTop, calcLeft);
     return (
-      <Wrapper top={`${calcTop}%`} left={`${calcLeft}%`} coefficient={this.state.coefficient}>
+      <Wrapper
+        top={`${calcTop}%`}
+        left={`${calcLeft}%`}
+        coefficient={this.state.coefficient}
+      >
         <Text />
       </Wrapper>
     );
@@ -62,7 +66,6 @@ class Point extends React.Component {
 Point.propTypes = {
   top: PropTypes.number.isRequired,
   left: PropTypes.node.isRequired,
-  number: PropTypes.string.isRequired,
 };
 export default Point;
 

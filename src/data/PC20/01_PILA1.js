@@ -8,8 +8,8 @@ export const OBJ_01_PILA = {
   date: '2015 říjen',
   latitude: `49°42'38.946"N`,
   longitude: `18°17'38.248"E`,
-  left: 1468,
-  top: 868,
+  left: 1469.5,
+  top: 866,
 
   arrival: 
   `Z požární stanice vlevo na Hlavní třídu, 2x přes žel. přejezd, před skladem štěpek odbočit vlevo po hlavní silnici. Za přejímkou vlákniny u čerpací stanice odbočit vpravo na ulici Dřevařská. Objekt pily se nachází po levé straně.`,
