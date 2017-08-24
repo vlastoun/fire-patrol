@@ -8,7 +8,7 @@ export const OBJ_01_PILA = {
   date: '2015 říjen',
   latitude: `49°42'38.946"N`,
   longitude: `18°17'38.248"E`,
-  left: 1469.5,
+  left: 1470,
   top: 866,
 
   arrival: 

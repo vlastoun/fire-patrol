@@ -14,9 +14,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
-        <Header>Test</Header>
         <Map buildings={objects}/>
-        <Header>Test</Header>
       </div>
     );
   }
