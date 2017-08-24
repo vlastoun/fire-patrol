@@ -15,7 +15,7 @@ class HomePage extends React.Component {
       <div>
         <Header>Test</Header>
         <Map>
-          <Point left="5%" top={0} number="5a"/>
+          <Point left={650} top={258} number="48" />
         </Map>
         <Header>Test</Header>
       </div>
