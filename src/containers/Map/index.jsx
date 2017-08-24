@@ -20,12 +20,15 @@ class MainMap extends React.Component {
   }
   mapObjectsToPoints(){
     const { buildings } = this.props;
-    return buildings.map((object) => <Point key={object.id} {...object}/>);
+    return buildings.map((object) => (<Point
+      key={object.id}
+      {...object}
+    />));
   }
   render() {
     return (
       <Container>
-        <Img src={Map} alt="mapa" />
+        <Img src={Map} alt="mapa" onClick={this.hideInfos}/>
         {this.mapObjectsToPoints()}
         {React.Children.toArray(this.props.children)}
       </Container>

@@ -1,17 +1,8 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Wrapper from './point';
-import Tooltip from '../Tooltip';
-/* eslint-disable react/prefer-stateless-function */
-/* eslint-disable no-console */
-const Text = styled.p`
- font-weight: bold;
- text-align: center;
- position: relative;
- top: 2px;
-`;
+import InfoBox from './InfoBox';
+import DisplayInfo from './DisplayInfo';
 
 const IMG_WIDTH = 1962;
 const IMG_HEIGHT = 1311;
@@ -45,6 +36,10 @@ class Point extends React.Component {
     window.addEventListener('keypress', this.hideInfo);
   }
 
+  componentWillReceiveProps(nextProps){
+    console.log(nextProps);
+  }
+
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateDimensions);
     window.removeEventListener('resize', this.calculateCoeficient);
@@ -63,7 +58,7 @@ class Point extends React.Component {
   }
 
   showInfo() {
-    this.setState({ isInfoVisible: true });
+    this.setState({ isInfoVisible: true, isTooltipVisible: false });
   }
 
   hideInfo(e) {
@@ -73,12 +68,15 @@ class Point extends React.Component {
   }
 
   showTooltip() {
-    this.setState({ isTooltipVisible: true });
+    if (!this.state.isInfoVisible){
+      this.setState({ isTooltipVisible: true });
+    }
   }
 
   hideTooltip() {
     this.setState({ isTooltipVisible: false });
   }
+
 
   render() {
     const { top, left, group, id, name } = this.props;
@@ -92,9 +90,12 @@ class Point extends React.Component {
         onClick={this.showInfo}
         onMouseEnter={this.showTooltip}
         onMouseLeave={this.hideTooltip}
+        active={this.state}
       >
-        <Text />
-        {this.state.isInfoVisible ? <Tooltip>{name}</Tooltip> : null}
+        <div style={{position: 'relative'}}>
+          {this.state.isTooltipVisible ? <InfoBox><span>{name}</span></InfoBox> : null}
+          {this.state.isInfoVisible ? <InfoBox><DisplayInfo {...this.props}/></InfoBox> : null}
+        </div>
       </Wrapper>
     );
   }

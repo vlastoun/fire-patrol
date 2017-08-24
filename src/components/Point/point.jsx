@@ -6,11 +6,14 @@ const Point = styled.div`
   top: ${(props) => props.top};
   width: ${(props) => (props.coefficient * 35) + 'px'};
   height: ${(props) => (props.coefficient * 35) + 'px'};
+  border-color: ${(props) => (props.active ? 'red' : 'black')};
   border-style: solid;
   border-width: 2px;
   border-radius: ${(props) => (props.coefficient * 35) + 'px'};
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   &:hover {
     cursor: pointer;
+    border-color: red;
   }
 `;
 
