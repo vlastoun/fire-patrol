@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
