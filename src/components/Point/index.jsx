@@ -31,7 +31,7 @@ class Point extends React.Component {
     const calcTop = (top / mapHeight) * 100;
     const calcLeft = (left / mapWidth) * 100;
     return (
-      <Link to={`/buildings/${this.props.id}`}>
+      <Link to={`/building/${this.props.id}`}>
         <Border
           top={`${calcTop}%`}
           left={`${calcLeft}%`}
