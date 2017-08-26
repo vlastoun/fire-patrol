@@ -1,16 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Map from './hydrants-map-2016.png';
 
-class HydrantsMap extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>hydranty</h1>
-      </div>
-    );
-  }
-}
+const Img = styled.img`
+overflow-x: hidden;
+overflow-y: hidden;
+max-width: 100%;
+`;
 
-HydrantsMap.propTypes = {
-};
+const HydrantsMap = () => <Img src={Map} alt="hlavni mapa budov"/>;
+
 export default HydrantsMap;

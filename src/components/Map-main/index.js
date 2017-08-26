@@ -1,17 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-/* eslint-disable react/prefer-stateless-function */
-/* eslint-disable no-console */
-class MainMap extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>MainMap</h1>
-      </div>
-    );
-  }
-}
+import styled from 'styled-components';
+import Map from './main-map-2016.png';
 
-MainMap.propTypes = {
-};
+const Img = styled.img`
+overflow-x: hidden;
+overflow-y: hidden;
+max-width: 100%;
+`;
+
+const MainMap = () => <Img src={Map} alt="hlavni mapa budov"/>;
+
 export default MainMap;
