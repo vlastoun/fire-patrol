@@ -5,15 +5,9 @@ import PropTypes from 'prop-types';
 const SIDEBAR_WIDTH = '180px';
 
 const Wrapper = styled.div`
-width: ${SIDEBAR_WIDTH};
-height: 100%;
-float: left
-position: fixed;
-z-index: 1;
-top: 0;
-left: 0;
-overflow-x: hidden;
-background-color: grey;
+  width: ${SIDEBAR_WIDTH};
+  top: 0;
+  height: 100%;
 `;
 
 const Sidebar = (props) => (
