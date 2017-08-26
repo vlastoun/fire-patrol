@@ -1,11 +1,11 @@
 import { createSelector } from 'reselect';
 
 const selectHome = (state) => state.globalState;
-const selectBuilding = () => createSelector(
+const selectObjects = () => createSelector(
   selectHome,
-  (homeState) => homeState.activeBuilding,
+  (homeState) => homeState.objects,
 );
 
 export {
-  selectBuilding,
+  selectObjects,
 };
