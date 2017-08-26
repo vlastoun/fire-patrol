@@ -1,7 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+
+import 'semantic-ui-css/semantic.min.css';
+
 import MapPage from '../MapPage';
-import MainMenu from './MainMenu';
+import Links from '../../components/Links';
 import HydrantsMap from '../../components/Map-hydrants';
 import LaddersMap from '../../components/Map-ladders';
 
@@ -9,7 +12,7 @@ import BuildingPage from '../BuildingPage';
 
 const App = () => (
   <div>
-    <MainMenu />
+    <Links />
     <Switch>
       <Route exact path="/" component={MapPage} />
       <Route exact path="/building/:id" component={BuildingPage} />
