@@ -7,6 +7,7 @@ export const OBJ_02_VYKLADKA = {
   name: 'Vykládkla a manipulace se dřevem',
   so: '20-50.3',
   date: '2015 říjen',
+  height: '+0m',
   latitude: `49.7103325N`,
   longitude: `18.2952553E`,
   left: 1709,

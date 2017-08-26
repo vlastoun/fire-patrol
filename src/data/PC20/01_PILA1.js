@@ -7,6 +7,7 @@ export const OBJ_01_PILA = {
   name: 'Pila č.1',
   so: '20-50.1',
   date: '2015 říjen',
+  height: '+3.8m',
   latitude: `49°42'38.946"N`,
   longitude: `18°17'38.248"E`,
   left: 1472,
@@ -28,14 +29,13 @@ Konstrukce objektu ocelový a betonový skelet, obvodové stěny panelové, oblo
   extinguishings:
   `
 * Venkovní hydranty 
-* Použít pěnidlo AFFF 3% uložené na HZS podniku v množství 1500l, 400l je ve vozidle jednotky HZSp
-* CAS 20 SCANIA
+* **Použít pěnidlo AFFF 3% uložené na HZS podniku v množství 1500l, 400l je ve vozidle jednotky HZSp CAS 20 SCANIA**
 * Ruční hasicí přístroje umístěné na velínu pily
   `,
 
   information: `
-* v případě použití B proudu je nutná vydatnost 600l/min
-* při nasazení pěnidla použít proudnice typu P6 při tlaku 0,8 MPa
+* **v případě použití B proudu je nutná vydatnost 600l/min**
+* **při nasazení pěnidla použít proudnice typu P6 při tlaku 0,8 MPa**
 * bližší informace o objektu na velínu dřevosekárny 2224, 1421
   `,
   
