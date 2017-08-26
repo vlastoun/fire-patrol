@@ -1,7 +1,7 @@
 import {OBJ_01_PILA} from './PC20/01_PILA1';
 import {OBJ_02_VYKLADKA} from './PC20/02_VYKLADKA';
 
-export const group = [
+export const groups = [
   {
     id: 1,
     unit: '20',

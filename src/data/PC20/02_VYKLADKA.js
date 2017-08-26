@@ -1,7 +1,8 @@
 /* eslint-disable */
 import img1 from './02.png'
 export const OBJ_02_VYKLADKA = {
-  id: '02',
+  id: 2,
+  label: '02',
   group: 1,
   name: 'Vykládkla a manipulace se dřevem',
   so: '20-50.3',
