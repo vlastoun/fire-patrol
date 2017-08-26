@@ -8,10 +8,11 @@ const App = () => (
     <MainMenu />
     <Switch>
       <Route exact path="/" component={MapPage} />
-      <Route exact path="/:map/:id" component={MapPage} />
+      <Route exact path="/building/:id" component={MapPage} />
       <Route component={MapPage} />
     </Switch>
   </div>
 );
 
 export default App;
+
