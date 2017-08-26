@@ -9,7 +9,8 @@ import {GET_CORRECT_BUILDING} from '../../constants';
 /* eslint-disable no-console */
 class BuildingPage extends React.Component {
   componentWillMount(){
-    this.props.getCorrectBuilding(this.props.match.params.id);
+    const id = parseInt(this.props.match.params.id, 10);
+    this.props.getCorrectBuilding(id);
   }
   render() {
     return (
