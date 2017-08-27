@@ -27,7 +27,7 @@ class Point extends React.Component {
 
 
   render() {
-    const { top, left, group, id, name, mapHeight, mapWidth } = this.props;
+    const { top, left, group, name, mapHeight, mapWidth } = this.props;
     const calcTop = (top / mapHeight) * 100;
     const calcLeft = (left / mapWidth) * 100;
     return (
@@ -55,6 +55,11 @@ Point.propTypes = {
   top: PropTypes.number.isRequired,
   left: PropTypes.node.isRequired,
   coefficient: PropTypes.number.isRequired,
+  group: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  mapWidth: PropTypes.number.isRequired,
+  mapHeight: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
 };
 export default Point;
 

@@ -1,5 +1,4 @@
-import { take, takeLatest, cancel, put } from 'redux-saga/effects';
-import { LOCATION_CHANGE } from 'react-router-redux';
+import { takeLatest, put } from 'redux-saga/effects';
 import { TESTSAGAS } from './constants';
 import { TEST_ACTION } from './../../constants';
 

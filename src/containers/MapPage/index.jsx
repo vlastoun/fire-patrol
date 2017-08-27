@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { NavLink, Switch, Route } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types'
+import {createStructuredSelector} from 'reselect';
 import Point from '../../components/Point';
-import { group, objects } from '../../data';
-
 import MainMap from '../../components/Map-main';
+import {selectObjects} from './selectors.js';
 
 
 const IMG_WIDTH = 2484;
@@ -43,7 +44,7 @@ class MapPage extends React.Component {
         <Switch>
           <Route component={MainMap} />
         </Switch>
-        {objects.map((object) => (
+        {this.props.objects.map((object) => (
           <Point
             key={object.id}
             mapHeight={IMG_HEIGHT}
@@ -56,7 +57,12 @@ class MapPage extends React.Component {
     );
   }
 }
+const mapStateToProps = () => createStructuredSelector({
+  objects: selectObjects(),
+});
+
 
 MapPage.propTypes = {
+  objects: PropTypes.array.isRequired,
 };
-export default MapPage;
+export default connect(mapStateToProps, null)(MapPage);
