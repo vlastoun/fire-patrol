@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as R from 'ramda';
 import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
@@ -79,6 +80,7 @@ class MapPage extends React.Component {
           />
         ))}
         <Tooltip
+          data={R.find(R.propEq('id', this.state.activeID))(this.props.objects)}
           left={this.state.mousePosX}
           top={this.state.mousePosY}
           isVisible={this.state.isTooltipActive}

@@ -14,17 +14,19 @@ const Tooltip = (props) => (
         top: props.top,
       }}
     >
-      test
+      {props.data ? props.data.name : null}
     </div>
     : null
 );
 
 Tooltip.propTypes = {
   isVisible: PropTypes.bool,
+  data: PropTypes.object,
 };
 
 Tooltip.defaultProps = {
   isVisible: false,
+  data: undefined,
 };
 
 export default Tooltip;
