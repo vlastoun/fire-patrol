@@ -5,7 +5,7 @@ import { Container } from 'semantic-ui-react';
 const style = {
   MainDiv: {
     paddingTop: '5em',
-    maxWidth: '800px',
+    maxWidth: '650px',
   },
 };
 

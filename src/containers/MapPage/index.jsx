@@ -8,8 +8,8 @@ import Point from '../../components/Point';
 import MainMap from '../../components/Map-main';
 import {selectObjects} from './selectors';
 
-const IMG_WIDTH = 2484;
-const IMG_HEIGHT = 1496;
+const IMG_WIDTH = 2610;
+const IMG_HEIGHT = 1711;
 
 const Container = styled.div`
   position: relative;

@@ -10,8 +10,8 @@ export const OBJ_02_VYKLADKA = {
   height: '+0m',
   latitude: `49.7103325N`,
   longitude: `18.2952553E`,
-  left: 1709,
-  top: 875,
+  left: 2312,
+  top: 1047,
 
   arrival: `Z požární stanice vlevo na Hlavní třídu, 2x přes žel. přejezd, před skladem štěpek odbočit vlevo po hlavní silnici. Za přejímkou vlákniny u čerpací stanice odbočit vpravo na ulici Dřevařská. Objekt se nachází po pravé straně před halou odkornění.`,
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import Map from './main-map-2016.png';
+import Map from './mapa_biocel_resize.svg';
 
 const Img = styled.img`
   width: 100%;
