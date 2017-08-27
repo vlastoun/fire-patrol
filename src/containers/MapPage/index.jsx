@@ -14,7 +14,7 @@ const IMG_HEIGHT = 1711;
 const Container = styled.div`
   position: relative;
 `;
-
+/* eslint-disable class-methods-use-this */
 class MapPage extends React.Component {
   constructor(props) {
     super(props);
@@ -22,6 +22,7 @@ class MapPage extends React.Component {
       coefficient: 1,
     };
     this.calculateCoeficient = this.calculateCoeficient.bind(this);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
   }
   componentDidMount() {
     this.calculateCoeficient();
@@ -37,20 +38,26 @@ class MapPage extends React.Component {
     this.setState({ coefficient: calculatedCoefficient });
   }
 
+  handleMouseEnter(event, id){
+    console.log('Event: ', event);
+    console.log('ID: ', id);
+  }
+
   render() {
+    const {objects} = this.props;
     return (
       <Container>
         <Switch>
           <Route component={MainMap} />
         </Switch>
-        {/* Layer with points */}
-        {this.props.objects.map((object) => (
+        {objects.map((object) => (
           <Point
             key={object.id}
-            mapHeight={IMG_HEIGHT}
-            mapWidth={IMG_WIDTH}
-            coefficient={this.state.coefficient}
-            {...object}
+            top={(object.top / IMG_HEIGHT) * 100}
+            left={(object.left / IMG_WIDTH) * 100}
+            scale={this.state.coefficient}
+            data="test"
+            handleMouseEnter={this.handleMouseEnter}
           />
         ))}
       </Container>

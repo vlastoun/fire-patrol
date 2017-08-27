@@ -16,7 +16,7 @@ const App = () => (
   <SidebarNavigation
     sidebarContent={<NavigationContent />}
   >
-    <Links />
+    {/* <Links /> */}
     <Switch>
       <Route exact path="/" component={MapPage} />
       <Route exact path="/building/:id" component={BuildingPage} />
