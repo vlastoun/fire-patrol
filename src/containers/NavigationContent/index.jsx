@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as R from 'ramda';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
+import {NavLink, withRouter} from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
 import { selectGroups, selectObjects } from './selectors';
@@ -30,16 +30,20 @@ const Wrapper = styled.div`
   width: 250px;
 `;
 
+const style = {
+  active: {fontWeight: 900},
+};
+
 const navigationSublist = (objects, id) => {
   const sublist = R.filter(R.propEq('group', id), objects);
   return (
     <div>
       {sublist.map((object) => (
-        <Link key={object.id} to={`/building/${object.id}`}>
+        <NavLink key={object.id} to={`/building/${object.id}`} exact activeStyle={style.active}>
           <Content>
             {object.label} {object.name}
           </Content>
-        </Link>
+        </NavLink>
       ))}
     </div>
   );
@@ -67,4 +71,4 @@ const mapStateToProps = () => createStructuredSelector({
 });
 
 
-export default connect(mapStateToProps, null)(NavigationContent);
+export default withRouter(connect(mapStateToProps, null)(NavigationContent));

@@ -2,12 +2,11 @@ import * as React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import {createStructuredSelector} from 'reselect';
 import Point from '../../components/Point';
 import MainMap from '../../components/Map-main';
-import {selectObjects} from './selectors.js';
-
+import {selectObjects} from './selectors';
 
 const IMG_WIDTH = 2484;
 const IMG_HEIGHT = 1496;
@@ -44,6 +43,7 @@ class MapPage extends React.Component {
         <Switch>
           <Route component={MainMap} />
         </Switch>
+        {/* Layer with points */}
         {this.props.objects.map((object) => (
           <Point
             key={object.id}

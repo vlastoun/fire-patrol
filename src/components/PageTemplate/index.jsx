@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import { Container } from 'semantic-ui-react';
 
 const style = {
-  MainDiv: { paddingTop: '5em' },
+  MainDiv: {
+    paddingTop: '5em',
+    maxWidth: '800px',
+  },
 };
 
 const PageTemplate = (props) => (
-  <Container style={style.MainDiv}>
+  <Container id="notscale" style={style.MainDiv}>
     {React.Children.toArray(props.children)}
   </Container>
 );

@@ -10,7 +10,7 @@ class SidebarNavigation extends React.Component {
     this.state = {
       mql,
       docked: props.docked,
-      open: true,
+      open: props.open,
     };
     this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
