@@ -52,6 +52,7 @@ class MapPage extends React.Component {
         </Switch>
         {objects.map((object) => (
           <Point
+            id={object.id}
             key={object.id}
             top={(object.top / IMG_HEIGHT) * 100}
             left={(object.left / IMG_WIDTH) * 100}
