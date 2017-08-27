@@ -24,6 +24,7 @@ class Point extends React.Component {
           cursor: 'pointer',
         }}
         onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.props.handleMouseLeave}
       >
         {this.props.data}
       </div>
@@ -36,7 +37,13 @@ Point.propTypes = {
   top: PropTypes.number.isRequired,
   left: PropTypes.number.isRequired,
   data: PropTypes.string.isRequired,
-  handleMouseEnter: PropTypes.func.isRequired,
+  handleMouseEnter: PropTypes.func,
+  handleMouseLeave: PropTypes.func,
+};
+
+Point.defaultProps = {
+  handleMouseLeave: () => console.log('not defined function for mouse leave'),
+  handleMouseEnter: () => console.log('not defined function for mouse enter'),
 };
 
 export default Point;

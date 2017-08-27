@@ -7,6 +7,7 @@ import {createStructuredSelector} from 'reselect';
 import Point from '../../components/Point';
 import MainMap from '../../components/Map-main';
 import {selectObjects} from './selectors';
+import Tooltip from '../../components/Tooltip';
 
 const IMG_WIDTH = 2610;
 const IMG_HEIGHT = 1711;
@@ -20,9 +21,14 @@ class MapPage extends React.Component {
     super(props);
     this.state = {
       coefficient: 1,
+      mousePosX: 0,
+      mousePosY: 0,
+      activeID: null,
+      isTooltipActive: false,
     };
     this.calculateCoeficient = this.calculateCoeficient.bind(this);
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
   componentDidMount() {
     this.calculateCoeficient();
@@ -39,8 +45,18 @@ class MapPage extends React.Component {
   }
 
   handleMouseEnter(event, id){
-    console.log('Event: ', event);
-    console.log('ID: ', id);
+    const xPos = event.clientX;
+    const yPos = event.clientY;
+    this.setState({
+      mousePosX: xPos,
+      mousePosY: yPos,
+      activeID: id,
+      isTooltipActive: true,
+    });
+  }
+
+  handleMouseLeave(){
+    this.setState({isTooltipActive: false, activeID: null});
   }
 
   render() {
@@ -59,8 +75,14 @@ class MapPage extends React.Component {
             scale={this.state.coefficient}
             data="test"
             handleMouseEnter={this.handleMouseEnter}
+            handleMouseLeave={this.handleMouseLeave}
           />
         ))}
+        <Tooltip
+          left={this.state.mousePosX}
+          top={this.state.mousePosY}
+          isVisible={this.state.isTooltipActive}
+        />
       </Container>
     );
   }
