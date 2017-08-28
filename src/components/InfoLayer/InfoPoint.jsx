@@ -15,6 +15,7 @@ class InfoPoint extends React.Component {
     return (
       <g
         onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.props.handleMouseLeave}
       >
         <circle
           cx={left}

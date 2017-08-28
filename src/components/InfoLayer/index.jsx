@@ -36,12 +36,11 @@ class InfoLayer extends React.Component {
     return (
       <div>
         <svg
-          style={this.props.style}
-          width={this.props.width}
-          height={this.props.height}
-          onMouseEnter={this.handleMouseLeavePoint}
+          style={style}
+          width={width}
+          height={height}
         >
-          {this.props.objects.map((object) => (
+          {objects.map((object) => (
             <Link key={object.id} to={`/building/${object.id}`}>
               <InfoPoint
                 top={`${(object.top / height) * 100}%`}
@@ -50,6 +49,7 @@ class InfoLayer extends React.Component {
                 label={object.label}
                 coefficient={coefficient}
                 handleMouseEnter={this.handleMouseEnterPoint}
+                handleMouseLeave={this.handleMouseLeavePoint}
               />
             </Link>
           ))}
@@ -59,6 +59,8 @@ class InfoLayer extends React.Component {
             ? <DisplayInfo
               left={xPos}
               top={yPos}
+              width={width}
+              height={height}
               data={R.find(R.propEq('id', this.state.infoId), objects)}
             />
             : null
