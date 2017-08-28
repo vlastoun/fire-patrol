@@ -30,7 +30,10 @@ const BuildingPage = (props) => {
         <MarkdownParser data={building.extinguishings} />
         <h2>{headings.information.toUpperCase()}</h2>
         <MarkdownParser data={building.information} />
-        {building.img.map((image) => <Image key={image} src={image} />)}
+        {building.length > 0
+          ? building.img.map((image) => <Image key={image} src={image} />)
+          : null
+        }
       </div>
     </PageTemplate>
   );

@@ -99,16 +99,3 @@ MapPage.propTypes = {
   objects: PropTypes.array.isRequired,
 };
 export default connect(mapStateToProps, null)(MapPage);
-
-// {objects.map((object) => (
-//   <Point
-//     id={object.id}
-//     key={object.id}
-//     top={(object.top / IMG_HEIGHT) * 100}
-//     left={(object.left / IMG_WIDTH) * 100}
-//     scale={this.state.coefficient}
-//     data="test"
-//     handleMouseEnter={this.handleMouseEnter}
-//     handleMouseLeave={this.handleMouseLeave}
-//   />
-// ))}
