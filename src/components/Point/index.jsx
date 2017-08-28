@@ -6,12 +6,15 @@ class Point extends React.Component {
     super(props);
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
   }
-  handleMouseEnter(e){
+  handleMouseEnter(e) {
     this.props.handleMouseEnter(e, this.props.id);
   }
   render() {
     return (
-      <div
+      <svg
+        width="100"
+        height="100"
+        viewBox="0 0 100 100"
         style={{
           position: 'absolute',
           left: `${this.props.left}%`,
@@ -19,15 +22,28 @@ class Point extends React.Component {
           zIndex: '50',
           borderStyle: 'solid',
           borderWidth: '2px',
-          width: '50px',
-          height: '50px',
           cursor: 'pointer',
         }}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.props.handleMouseLeave}
       >
-        {this.props.data}
-      </div>
+        <circle cx="50" cy="50" r="50" stroke="black" strokeWidth="3" fill="red" />
+        <text
+          style={{
+            fontDecoration: 'none',
+            fontSize: '3em',
+            border: 'none',
+          }}
+          x="50%"
+          y="50%"
+          textAnchor="middle"
+          stroke="yellow"
+          strokeWidth="0"
+          dy=".3em"
+        >
+          {this.props.id}
+        </text>
+      </svg>
     );
   }
 }

@@ -9,6 +9,7 @@ import LaddersMap from '../../components/Map-ladders';
 import BuildingPage from '../BuildingPage';
 import SidebarNavigation from './SidebarNavigation';
 import Links from '../../components/Links';
+import SvgComponent from '../../components/SvgComponent';
 
 import NavigationContent from '../NavigationContent';
 
@@ -16,7 +17,7 @@ const App = () => (
   <SidebarNavigation
     sidebarContent={<NavigationContent />}
   >
-    <Links />
+    {/* <Links /> */}
     <Switch>
       <Route exact path="/" component={MapPage} />
       <Route exact path="/building/:id" component={BuildingPage} />
@@ -25,6 +26,7 @@ const App = () => (
       Just move those subroutes under another router in MapPage */}
       <Route exact path="/ladders" component={LaddersMap} />
       <Route exact path="/hydrants" component={HydrantsMap} />
+      <Route exact path="/svg" component={SvgComponent} />
       <Route component={MapPage} />
     </Switch>
   </SidebarNavigation>
