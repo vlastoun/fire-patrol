@@ -3,10 +3,19 @@ import PropTypes from 'prop-types';
 /* eslint-disable react/prefer-stateless-function */
 /* eslint-disable no-console */
 class InfoPoint extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+  }
+  handleMouseEnter(e) {
+    this.props.handleMouseEnter(e, this.props.id);
+  }
   render() {
     const { top, left, label, coefficient } = this.props;
     return (
-      <g>
+      <g
+        onMouseEnter={this.handleMouseEnter}
+      >
         <circle
           cx={left}
           cy={top}

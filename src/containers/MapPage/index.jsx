@@ -27,6 +27,7 @@ const commonStyle = {
 
 const Container = styled.div`
   position: relative;
+  margin-top: 45px;
 `;
 /* eslint-disable class-methods-use-this */
 class MapPage extends React.Component {

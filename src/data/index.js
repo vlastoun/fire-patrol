@@ -19,6 +19,10 @@ export const groups = [
 export const objects = [
   OBJ_01_PILA,
   OBJ_02_VYKLADKA,
+  {id: 3, label: 3, left: 50, top: 50},
+  {id: 4, label: 4, left: 50, top: 1500},
+  {id: 5, label: 5, left: 2400, top: 50},
+  {id: 6, label: 6, left: 2400, top: 1500},
 ];
 
 export const mockobjects = [{
