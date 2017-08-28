@@ -10,6 +10,7 @@ import MainMap from '../../components/Map-main';
 import { selectObjects } from './selectors';
 import Tooltip from '../../components/Tooltip';
 import MapLayer from '../../components/MapLayer';
+import InfoLayer from '../../components/InfoLayer';
 
 // Size of map layer - info layer must match
 const IMG_WIDTH = 2610;
@@ -78,12 +79,13 @@ class MapPage extends React.Component {
         <MapLayer
           style={commonStyle}
         />
-        {/* <InfoLyer
+        <InfoLayer
           style={commonStyle}
           objects={this.props.objects}
           width={IMG_WIDTH}
           height={IMG_HEIGHT}
-        /> */}
+          coefficient={this.state.coefficient}
+        />
       </Container>
     );
   }
