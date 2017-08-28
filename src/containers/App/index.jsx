@@ -7,17 +7,12 @@ import MapPage from '../MapPage';
 import HydrantsMap from '../../components/Map-hydrants';
 import LaddersMap from '../../components/Map-ladders';
 import BuildingPage from '../BuildingPage';
-import SidebarNavigation from './SidebarNavigation';
 import Links from '../../components/Links';
 import SvgComponent from '../../components/SvgComponent';
 
-import NavigationContent from '../NavigationContent';
-
 const App = () => (
-  <SidebarNavigation
-    sidebarContent={<NavigationContent />}
-  >
-    {/* <Links /> */}
+  <div>
+    <Links />
     <Switch>
       <Route exact path="/" component={MapPage} />
       <Route exact path="/building/:id" component={BuildingPage} />
@@ -29,7 +24,7 @@ const App = () => (
       <Route exact path="/svg" component={SvgComponent} />
       <Route component={MapPage} />
     </Switch>
-  </SidebarNavigation>
+  </div>
 );
 
 App.propTypes = {

@@ -4,6 +4,13 @@ import Sidebar from 'react-sidebar';
 
 const mql = window.matchMedia(`(min-width: 1400px)`); // eslint-disable-line
 
+const sidebarStyles = {
+  sidebar: {
+    backgroundColor: 'white',
+    zIndex: 100,
+  },
+};
+
 class SidebarNavigation extends React.Component {
   constructor(props) {
     super(props);
@@ -35,6 +42,7 @@ class SidebarNavigation extends React.Component {
   render() {
     return (
       <Sidebar
+        style={sidebarStyles}
         sidebar={this.props.sidebarContent}
         open={this.state.sidebarOpen}
         docked={this.state.sidebarDocked}
