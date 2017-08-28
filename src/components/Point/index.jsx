@@ -1,5 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const MAIN_SIZE = 43;
 const SECONDARY_SIZE = MAIN_SIZE / 2;
@@ -13,43 +14,52 @@ class Point extends React.Component {
     this.props.handleMouseEnter(e, this.props.id);
   }
   render() {
-    const {scale} = this.props;
+    const { scale, id } = this.props;
     const scaledSize = MAIN_SIZE * scale;
     const scaledSmall = SECONDARY_SIZE * scale;
     return (
-      <svg
-        width={scaledSize}
-        height={scaledSize}
-        viewBox={`0 0 ${scaledSize} ${scaledSize}`}
-        style={{
-          position: 'absolute',
-          left: `${this.props.left}%`,
-          top: `${this.props.top}%`,
-          zIndex: '50',
-          borderStyle: 'solid',
-          borderWidth: '0px',
-          cursor: 'pointer',
-        }}
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.props.handleMouseLeave}
-      >
-        <circle cx={scaledSmall} cy={scaledSmall} r={scaledSmall} stroke="black" strokeWidth={scale * 3} fill="white" />
-        <text
+      <Link to={`/building/${id}`}>
+        <svg
+          width={scaledSize}
+          height={scaledSize}
+          viewBox={`0 0 ${scaledSize} ${scaledSize}`}
           style={{
-            fontDecoration: 'none',
-            fontSize: `${scale * 25}px`,
-            border: 'none',
+            position: 'absolute',
+            left: `${this.props.left}%`,
+            top: `${this.props.top}%`,
+            zIndex: '50',
+            borderStyle: 'solid',
+            borderWidth: '0px',
+            cursor: 'pointer',
           }}
-          x="50%"
-          y="50%"
-          textAnchor="middle"
-          stroke="yellow"
-          strokeWidth="0"
-          dy=".3em"
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.props.handleMouseLeave}
         >
-          {this.props.id}
-        </text>
-      </svg>
+          <circle
+            cx={scaledSmall}
+            cy={scaledSmall}
+            r={scaledSmall}
+            stroke="black"
+            strokeWidth={scale * 3}
+            fill="white"
+          />
+          <text
+            style={{
+              fontDecoration: 'none',
+              fontSize: `${scale * 25}px`,
+              border: 'none',
+            }}
+            x="50%"
+            y="50%"
+            textAnchor="middle"
+            stroke="yellow"
+            strokeWidth="0"
+            dy=".3em"
+          >
+            {this.props.id}
+          </text>
+        </svg>
+      </Link>
     );
   }
 }
