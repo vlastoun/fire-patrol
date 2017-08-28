@@ -41,5 +41,5 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://vlastoun.github.io/portfolio"
+  "homepage": "https://vlastoun.github.io/fire-patrol-demo/"
 }

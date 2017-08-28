@@ -11,7 +11,7 @@ import ScrollToTop from './ScrollToTop';
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename="/fire-patrol-demo">
       <ScrollToTop>
         <App />
       </ScrollToTop>
