@@ -9,18 +9,20 @@ import Point from '../../components/Point';
 import MainMap from '../../components/Map-main';
 import { selectObjects } from './selectors';
 import Tooltip from '../../components/Tooltip';
-import MAP from '../../components/Map-main/mapa_biocel_resize.svg';
+import MapLayer from '../../components/MapLayer';
 
+// Size of map layer - info layer must match
 const IMG_WIDTH = 2610;
 const IMG_HEIGHT = 1711;
 
+// Styling for map layer and info layer components
 const commonStyle = {
   width: '100%',
   height: 'auto',
   position: 'absolute',
   top: 0,
   left: 0,
-}
+};
 
 const Container = styled.div`
   position: relative;
@@ -73,14 +75,15 @@ class MapPage extends React.Component {
     const { objects } = this.props;
     return (
       <Container>
-        <img src={MAP} alt="mapa" style={commonStyle}/>
-        <svg
-          width="2610"
-          height="1711"
+        <MapLayer
           style={commonStyle}
-        >
-        {objects.map((object)=><circle cx={`${object.left/2610*100}%`} cy={`${object.top/1711*100}%`} r={`${24*this.state.coefficient}px`} stroke="black" fill="none" />)}
-        </svg>
+        />
+        {/* <InfoLyer
+          style={commonStyle}
+          objects={this.props.objects}
+          width={IMG_WIDTH}
+          height={IMG_HEIGHT}
+        /> */}
       </Container>
     );
   }

@@ -19,8 +19,6 @@ const App = () => (
       {/* TODO: nest hydrants and ladders under 
       layer of Points component - must have maps with correct width
       Just move those subroutes under another router in MapPage */}
-      <Route exact path="/ladders" component={LaddersMap} />
-      <Route exact path="/hydrants" component={HydrantsMap} />
       <Route exact path="/svg" component={SvgComponent} />
       <Route component={MapPage} />
     </Switch>
