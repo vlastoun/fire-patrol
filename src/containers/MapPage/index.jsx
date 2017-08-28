@@ -2,16 +2,25 @@ import * as React from 'react';
 import * as R from 'ramda';
 import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import {createStructuredSelector} from 'reselect';
+import { createStructuredSelector } from 'reselect';
 import Point from '../../components/Point';
 import MainMap from '../../components/Map-main';
-import {selectObjects} from './selectors';
+import { selectObjects } from './selectors';
 import Tooltip from '../../components/Tooltip';
+import MAP from '../../components/Map-main/mapa_biocel_resize.svg';
 
 const IMG_WIDTH = 2610;
 const IMG_HEIGHT = 1711;
+
+const commonStyle = {
+  width: '100%',
+  height: 'auto',
+  position: 'absolute',
+  top: 0,
+  left: 0,
+}
 
 const Container = styled.div`
   position: relative;
@@ -45,7 +54,7 @@ class MapPage extends React.Component {
     this.setState({ coefficient: calculatedCoefficient });
   }
 
-  handleMouseEnter(event, id){
+  handleMouseEnter(event, id) {
     const xPos = event.clientX;
     const yPos = event.clientY;
     this.setState({
@@ -56,35 +65,22 @@ class MapPage extends React.Component {
     });
   }
 
-  handleMouseLeave(){
-    this.setState({isTooltipActive: false, activeID: null});
+  handleMouseLeave() {
+    this.setState({ isTooltipActive: false, activeID: null });
   }
 
   render() {
-    const {objects} = this.props;
+    const { objects } = this.props;
     return (
       <Container>
-        <Switch>
-          <Route component={MainMap} />
-        </Switch>
-        {objects.map((object) => (
-          <Point
-            id={object.id}
-            key={object.id}
-            top={(object.top / IMG_HEIGHT) * 100}
-            left={(object.left / IMG_WIDTH) * 100}
-            scale={this.state.coefficient}
-            data="test"
-            handleMouseEnter={this.handleMouseEnter}
-            handleMouseLeave={this.handleMouseLeave}
-          />
-        ))}
-        <Tooltip
-          data={R.find(R.propEq('id', this.state.activeID))(this.props.objects)}
-          left={this.state.mousePosX}
-          top={this.state.mousePosY}
-          isVisible={this.state.isTooltipActive}
-        />
+        <img src={MAP} alt="mapa" style={commonStyle}/>
+        <svg
+          width="2610"
+          height="1711"
+          style={commonStyle}
+        >
+        {objects.map((object)=><circle cx={`${object.left/2610*100}%`} cy={`${object.top/1711*100}%`} r={`${24*this.state.coefficient}px`} stroke="black" fill="none" />)}
+        </svg>
       </Container>
     );
   }
@@ -98,3 +94,16 @@ MapPage.propTypes = {
   objects: PropTypes.array.isRequired,
 };
 export default connect(mapStateToProps, null)(MapPage);
+
+// {objects.map((object) => (
+//   <Point
+//     id={object.id}
+//     key={object.id}
+//     top={(object.top / IMG_HEIGHT) * 100}
+//     left={(object.left / IMG_WIDTH) * 100}
+//     scale={this.state.coefficient}
+//     data="test"
+//     handleMouseEnter={this.handleMouseEnter}
+//     handleMouseLeave={this.handleMouseLeave}
+//   />
+// ))}

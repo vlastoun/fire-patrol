@@ -4,6 +4,9 @@ import Map from './mapa_biocel_resize.svg';
 
 const Img = styled.img`
   width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 
 const MainMap = () => (
