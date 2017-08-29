@@ -5,7 +5,7 @@ import marksy from 'marksy';
 const compile = marksy({
   createElement,
   elements: {
-    h1({ id, children }) {
+    h1({ id, children }) { // eslint-disable-line
       return <h1>{children}</h1>;
     },
   },

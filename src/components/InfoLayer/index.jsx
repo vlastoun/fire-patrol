@@ -24,7 +24,7 @@ class InfoLayer extends React.Component {
     this.getSvgSize = this.getSvgSize.bind(this);
   }
   componentDidMount() {
-    window.addEventListener('resize', this.getSvgSize)
+    window.addEventListener('resize', this.getSvgSize);
     this.getSvgSize();
   }
   componentWillUnmount() {
@@ -63,7 +63,6 @@ class InfoLayer extends React.Component {
   }
   render() {
     const { style, width, height, objects, coefficient } = this.props;
-    const { xPos, yPos } = this.state;
     return (
       <div className="wrapperInfo">
         <svg
@@ -104,5 +103,16 @@ class InfoLayer extends React.Component {
 }
 
 InfoLayer.propTypes = {
+  style: PropTypes.object.isRequired,
+  coefficient: PropTypes.number.isRequired,
+  hoveringOn: PropTypes.number,
+  isHoveringActive: PropTypes.bool.isRequired,
+  height: PropTypes.number.isRequired,
+  width: PropTypes.number.isRequired,
+  objects: PropTypes.array.isRequired,
+};
+
+InfoLayer.defaultProps = {
+  hoveringOn: undefined,
 };
 export default InfoLayer;

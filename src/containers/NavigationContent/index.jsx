@@ -31,7 +31,12 @@ const NavigationContent = (props) => {
       <div>
         {sublist.map((object) => (
           <NavLink key={object.id} to={`/building/${object.id}`} exact activeStyle={style.active}>
-            <CleverContent group={object.group} id={object.id} handleMouseEnter={props.handleMouseEnter} handleMouseLeave={props.handleMouseLeave}>
+            <CleverContent
+              group={object.group}
+              id={object.id}
+              handleMouseEnter={props.handleMouseEnter}
+              handleMouseLeave={props.handleMouseLeave}
+            >
               {object.label} {object.name}
             </CleverContent>
           </NavLink>
@@ -56,6 +61,8 @@ const NavigationContent = (props) => {
 NavigationContent.propTypes = {
   objects: PropTypes.array.isRequired,
   groups: PropTypes.array.isRequired,
+  handleMouseEnter: PropTypes.func.isRequired,
+  handleMouseLeave: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = () => createStructuredSelector({
@@ -66,7 +73,7 @@ const mapStateToProps = () => createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     handleMouseEnter: (id) => dispatch({ type: HOVERING_ON_ID, id }),
-    handleMouseLeave: ()=> dispatch({type: HOVERING_STOPPED}),
+    handleMouseLeave: () => dispatch({ type: HOVERING_STOPPED }),
   };
 }
 

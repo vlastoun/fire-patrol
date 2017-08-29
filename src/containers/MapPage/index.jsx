@@ -1,17 +1,11 @@
 import * as React from 'react';
-import * as R from 'ramda';
-import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createStructuredSelector } from 'reselect';
-import Point from '../../components/Point';
-import MainMap from '../../components/Map-main';
 import { selectObjects, selectHoveringOn, selectIsHoveringActive } from './selectors';
-import Tooltip from '../../components/Tooltip';
 import MapLayer from '../../components/MapLayer';
 import InfoLayer from '../../components/InfoLayer';
-import NavigationContent from '../NavigationContent';
 import SideNavigation from '../../components/SideNavigation';
 import Vetrovka from './vetrovka.svg';
 
@@ -30,7 +24,7 @@ const commonStyle = {
 
 const Container = styled.div`
   position: relative;
-  margin-top: 45px;
+  margin-top: 55px;
   flex: 1;
 `;
 /* eslint-disable class-methods-use-this */
@@ -78,7 +72,6 @@ class MapPage extends React.Component {
   }
 
   render() {
-    const { objects } = this.props;
     return (
       <SideNavigation>
         <Container>
@@ -106,8 +99,14 @@ const mapStateToProps = () => createStructuredSelector({
   isHoveringActive: selectIsHoveringActive(),
 });
 
-
 MapPage.propTypes = {
   objects: PropTypes.array.isRequired,
+  hoveringOn: PropTypes.number,
+  isHoveringActive: PropTypes.bool.isRequired,
 };
+
+MapPage.defaultProps = {
+  hoveringOn: undefined,
+};
+
 export default connect(mapStateToProps, null)(MapPage);

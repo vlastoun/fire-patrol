@@ -5,7 +5,6 @@ import { createStructuredSelector } from 'reselect';
 import * as R from 'ramda';
 import { Image, Table } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import PageTemplate from '../../components/PageTemplate';
 import { selectObjects } from './selectors';
 import MarkdownParser from '../../components/MarkdownParser';
@@ -32,7 +31,7 @@ const BuildingPage = (props) => {
   const {
     label, group, name, so, date,
     height, latitude, longitude,
-    left, top, arrival, objectCharacter,
+    arrival, objectCharacter,
     extinguishings, information, img } = building;
   return (
     <PageTemplate>
@@ -46,11 +45,15 @@ const BuildingPage = (props) => {
             </Table.Row>
             <Table.Row>
               <Table.HeaderCell>SO {so}</Table.HeaderCell>
-              <Table.HeaderCell colSpan={2}><Link to="/">GPS: {latitude} {longitude}</Link></Table.HeaderCell>
+              <Table.HeaderCell colSpan={2}>
+                <Link to="/">GPS: {latitude} {longitude}</Link>
+              </Table.HeaderCell>
               <Table.HeaderCell>{height}</Table.HeaderCell>
             </Table.Row>
             <Table.Row>
-              <Table.HeaderCell colSpan={4}>ADRESA: BIOCEL Paskov, a.s., Zahradní 762, 739 21 Paskov</Table.HeaderCell>
+              <Table.HeaderCell colSpan={4}>
+                ADRESA: BIOCEL Paskov, a.s., Zahradní 762, 739 21 Paskov
+              </Table.HeaderCell>
               <Table.HeaderCell>{date}</Table.HeaderCell>
             </Table.Row>
           </Table.Header>

@@ -1,7 +1,7 @@
 import {OBJ_01_PILA} from './PC20/01_PILA1';
 import {OBJ_02_VYKLADKA} from './PC20/02_VYKLADKA';
 import {OBJ_08_VARNA} from './PC21/08_VARNA';
-import Dummy from './PC20/01.png';
+// import Dummy from './PC20/01.png';
 
 export const groups = [
   {

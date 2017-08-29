@@ -1,4 +1,5 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import NavigationContent from '../../containers/NavigationContent';
 import Logo from './logo_lenzing.svg';
 
@@ -9,7 +10,7 @@ const style = {
   },
   narrow: {
     width: '250px',
-    marginTop: '45px',
+    marginTop: '60px',
     paddingLeft: '1em',
     paddingRight: '1em',
     right: 0,
@@ -33,8 +34,7 @@ const SideNavigation = (props) => (
       window.innerWidth > 1200
         ? <div style={style.narrow}>
           <div>
-            <img style={{width: '100%', marginBottom: '3em'}} src={Logo} alt="logo"/>
-            <h3>Seznam objektů</h3>
+            <img style={{width: '100%'}} src={Logo} alt="logo"/>
             <NavigationContent />
           </div>
         </div>
@@ -42,5 +42,9 @@ const SideNavigation = (props) => (
     }
   </div>
 );
+
+SideNavigation.propTypes = {
+  children: PropTypes.node.isRequired,
+}
 
 export default SideNavigation;

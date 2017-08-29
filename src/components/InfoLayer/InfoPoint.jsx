@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import ColourResolver from '../../ColourResolver.js';
+import ColourResolver from '../../ColourResolver';
 /* eslint-disable react/prefer-stateless-function */
 /* eslint-disable no-console */
 class InfoPoint extends React.Component {
@@ -48,7 +48,7 @@ class InfoPoint extends React.Component {
           x={left}
           y={top}
           fontSize={`${25 * coefficient}px`}
-          textAnchor='middle'
+          textAnchor="middle"
           dy={`${8.5 * coefficient}px`}
           stroke
         >
@@ -60,5 +60,14 @@ class InfoPoint extends React.Component {
 }
 
 InfoPoint.propTypes = {
+  top: PropTypes.string.isRequired,
+  left: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  coefficient: PropTypes.number.isRequired,
+  group: PropTypes.number.isRequired,
+  isHovered: PropTypes.bool.isRequired,
+  handleMouseEnter: PropTypes.func.isRequired,
+  handleMouseLeave: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
 };
 export default InfoPoint;
