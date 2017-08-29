@@ -52,6 +52,7 @@ class InfoLayer extends React.Component {
                 handleMouseEnter={this.handleMouseEnterPoint}
                 handleMouseLeave={this.handleMouseLeavePoint}
                 group={object.group}
+                isHovered={object.id === this.props.hoveringOn}
               />
             </Link>
           ))}

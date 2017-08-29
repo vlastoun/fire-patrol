@@ -9,6 +9,7 @@ class InfoPoint extends React.Component {
     this.state = {isActive: false}
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
+    this.solveFill = this.solveFill.bind(this);
   }
   handleMouseEnter(e) {
     this.props.handleMouseEnter(e, this.props.id);
@@ -17,6 +18,15 @@ class InfoPoint extends React.Component {
   handleMouseLeave(){
     this.props.handleMouseLeave();
     this.setState({isActive: false});
+  }
+  solveFill(){
+    if (this.state.isActive){
+      return 'lightgray';
+    }
+    if (this.props.isHovered){
+      return 'red';
+    }
+    return 'white';
   }
   render() {
     const { top, left, label, coefficient, group } = this.props;
@@ -29,7 +39,7 @@ class InfoPoint extends React.Component {
           cx={left}
           cy={top}
           r={`${25 * coefficient}px`}
-          fill={this.state.isActive ? 'lightgrey' : 'white'}
+          fill={this.solveFill()}
           strokeWidth={`${4 * coefficient}px`}
           stroke={ColourResolver(group)}
         />

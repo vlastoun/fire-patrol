@@ -20,10 +20,10 @@ const headings = {
 
 function solveWidth(width) {
   const windowWidth = window.innerWidth;
-  if (width < windowWidth) {
-    return `${width}px`;
+  if (width > windowWidth) {
+    return `${windowWidth}px`;
   }
-  return `${windowWidth}px`;
+  return `${width}px`;
 }
 
 const BuildingPage = (props) => {
@@ -36,8 +36,8 @@ const BuildingPage = (props) => {
     extinguishings, information, img } = building;
   return (
     <PageTemplate>
-      <div style={{ maxWidth: solveWidth(650), float: 'none', margin: 'auto', paddingBottom: '3em' }}>
-        <Table celled structured style={{ width: '100%' }} color={ColourResolver(group)}>
+      <div style={{ float: 'none', margin: 'auto', paddingBottom: '3em' }}>
+        <Table celled structured color={ColourResolver(group)}>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell disabled style={{ maxWidth: '100px' }} rowSpan={2}><span style={{ fontSize: '3em' }}>{label}</span></Table.HeaderCell>
@@ -70,7 +70,7 @@ const BuildingPage = (props) => {
             <Table.Row>
               <Table.Cell colSpan={5}>
                 {img.length > 0
-                  ? img.map((image) => <Image key={image} src={image} />)
+                  ? img.map((image) => <Image key={image} width={solveWidth(800)} src={image} />)
                   : null
                 }
               </Table.Cell>

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { createStructuredSelector } from 'reselect';
 import Point from '../../components/Point';
 import MainMap from '../../components/Map-main';
-import { selectObjects } from './selectors';
+import { selectObjects, selectHoveringOn, selectIsHoveringActive } from './selectors';
 import Tooltip from '../../components/Tooltip';
 import MapLayer from '../../components/MapLayer';
 import InfoLayer from '../../components/InfoLayer';
@@ -91,6 +91,8 @@ class MapPage extends React.Component {
             width={IMG_WIDTH}
             height={IMG_HEIGHT}
             coefficient={this.state.coefficient}
+            hoveringOn={this.props.hoveringOn}
+            isHoveringActive={this.props.isHoveringActive}
           />
           <img width="20%" style={{position: 'absolute', left: '10px', top: '20px', zIndex: -5}} src={Vetrovka} alt="vetrovka"/>
         </Container>
@@ -100,6 +102,8 @@ class MapPage extends React.Component {
 }
 const mapStateToProps = () => createStructuredSelector({
   objects: selectObjects(),
+  hoveringOn: selectHoveringOn(),
+  isHoveringActive: selectIsHoveringActive(),
 });
 
 
