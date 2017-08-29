@@ -24,10 +24,6 @@ const Content = styled.div`
 `;
 
 const Wrapper = styled.div`
-  margin-top: 43px;
-  margin-left: 1em;
-  margin-right:1em;
-  width: 250px;
 `;
 
 const style = {

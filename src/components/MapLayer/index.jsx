@@ -6,7 +6,6 @@ import Hydrants from '../Map-hydrants';
 const MapLayer = (props) => (
   <Switch>
     <Route exact path="/" render={() => <MainMap {...props}/>}/>
-    <Route exact path="/hydrants" render={() => <Hydrants {...props}/>}/>
   </Switch>
 );
 

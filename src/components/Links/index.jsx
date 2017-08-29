@@ -12,7 +12,7 @@ const Links = () => (
       <Menu.Item as={NavLink} exact to="/">Mapa budov</Menu.Item>
       <Menu.Item as={NavLink} to="/ladders">Žebříky</Menu.Item>
       <Menu.Item as={NavLink} to="/hydrants">Hydranty</Menu.Item>
-      <Menu.Item as={Button} position="right">
+      <Menu.Item as={NavLink} to="/buildingslist">
         Seznam budov
       </Menu.Item>
     </Container>
