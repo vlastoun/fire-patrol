@@ -11,6 +11,9 @@ import { selectObjects } from './selectors';
 import Tooltip from '../../components/Tooltip';
 import MapLayer from '../../components/MapLayer';
 import InfoLayer from '../../components/InfoLayer';
+import NavigationContent from '../NavigationContent';
+import SideNavigation from '../../components/SideNavigation';
+import Vetrovka from './vetrovka.svg';
 
 // Size of map layer - info layer must match
 const IMG_WIDTH = 2610;
@@ -28,6 +31,7 @@ const commonStyle = {
 const Container = styled.div`
   position: relative;
   margin-top: 45px;
+  flex: 1;
 `;
 /* eslint-disable class-methods-use-this */
 class MapPage extends React.Component {
@@ -76,18 +80,21 @@ class MapPage extends React.Component {
   render() {
     const { objects } = this.props;
     return (
-      <Container>
-        <MapLayer
-          style={commonStyle}
-        />
-        <InfoLayer
-          style={commonStyle}
-          objects={this.props.objects}
-          width={IMG_WIDTH}
-          height={IMG_HEIGHT}
-          coefficient={this.state.coefficient}
-        />
-      </Container>
+      <SideNavigation>
+        <Container>
+          <MapLayer
+            style={commonStyle}
+          />
+          <InfoLayer
+            style={commonStyle}
+            objects={this.props.objects}
+            width={IMG_WIDTH}
+            height={IMG_HEIGHT}
+            coefficient={this.state.coefficient}
+          />
+          <img width="20%" style={{position: 'absolute', left: '10px', top: '20px', zIndex: -5}} src={Vetrovka} alt="vetrovka"/>
+        </Container>
+      </SideNavigation>
     );
   }
 }

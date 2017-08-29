@@ -3,7 +3,7 @@ import img1 from './02.png'
 export const OBJ_02_VYKLADKA = {
   id: 2,
   label: '02',
-  group: 2,
+  group: 1,
   name: 'Vykládkla a manipulace se dřevem',
   so: '20-50.3',
   date: '2015 říjen',

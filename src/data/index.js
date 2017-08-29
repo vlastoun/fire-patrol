@@ -1,5 +1,6 @@
 import {OBJ_01_PILA} from './PC20/01_PILA1';
 import {OBJ_02_VYKLADKA} from './PC20/02_VYKLADKA';
+import {OBJ_08_VARNA} from './PC21/08_VARNA';
 import Dummy from './PC20/01.png';
 
 export const groups = [
@@ -24,6 +25,7 @@ export const objects = [
   {id: 4, name: 'bottom leftcorner', label: 4, left: 50, top: 1500, img: [Dummy]},
   {id: 5, name: 'top right corner', label: 5, left: 2400, top: 50, img: [Dummy]},
   {id: 6, name: 'bottom right corner', label: 6, left: 2400, top: 1500, img: [Dummy]},
+  OBJ_08_VARNA,
 ];
 
 export const mockobjects = [{
