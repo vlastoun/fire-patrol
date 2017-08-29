@@ -38,8 +38,7 @@ class InfoLayer extends React.Component {
   }
   handleHoveredLink(id) {
     const object = R.find(R.propEq('id', id), this.props.objects);
-    const coefficient = this.state.divWidth / this.props.width;
-    console.log(coefficient);
+    const scaleCoefficient = this.state.divWidth / this.props.width;
     return (
       <DisplayInfo
         left={object.left}
@@ -47,7 +46,7 @@ class InfoLayer extends React.Component {
         imageWidth={this.props.width}
         imageHeight={this.props.height}
         data={object}
-        coefficient={coefficient}
+        scaleCoefficient={scaleCoefficient}
       />
     );
   }

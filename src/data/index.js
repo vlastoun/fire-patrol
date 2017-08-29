@@ -21,10 +21,10 @@ export const groups = [
 export const objects = [
   OBJ_01_PILA,
   OBJ_02_VYKLADKA,
-  {id: 3, name: 'top left corner', label: 3, left: 50, top: 50, img: [Dummy]},
-  {id: 4, name: 'bottom leftcorner', label: 4, left: 50, top: 1500, img: [Dummy]},
-  {id: 5, name: 'top right corner', label: 5, left: 2400, top: 50, img: [Dummy]},
-  {id: 6, name: 'bottom right corner', label: 6, left: 2400, top: 1500, img: [Dummy]},
+  // {id: 3, name: 'top left corner', label: 3, left: 50, top: 50, img: [Dummy]},
+  // {id: 4, name: 'bottom leftcorner', label: 4, left: 50, top: 1500, img: [Dummy]},
+  // {id: 5, name: 'top right corner', label: 5, left: 2400, top: 50, img: [Dummy]},
+  // {id: 6, name: 'bottom right corner', label: 6, left: 2400, top: 1500, img: [Dummy]},
   OBJ_08_VARNA,
 ];
 
