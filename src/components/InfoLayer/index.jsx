@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import InfoPoint from './InfoPoint';
 import DisplayInfo from './DisplayInfo';
 
-/* eslint-disable react/prefer-stateless-function */
-/* eslint-disable no-console */
+const SVG_CONTAINER_NAME = 'svgContainerInfoLayer';
+
 class InfoLayer extends React.Component {
   constructor(props) {
     super(props);
@@ -15,13 +15,41 @@ class InfoLayer extends React.Component {
       xPos: 0,
       yPos: 0,
       infoId: undefined,
+      divHeight: undefined,
+      divWidth: undefined,
     };
     this.handleMouseEnterPoint = this.handleMouseEnterPoint.bind(this);
     this.handleMouseLeavePoint = this.handleMouseLeavePoint.bind(this);
     this.handleHoveredLink = this.handleHoveredLink.bind(this);
+    this.getSvgSize = this.getSvgSize.bind(this);
   }
-  handleMouseLeavePoint(e) {
-    this.setState({ isTooltipVisible: false, infoId: undefined });
+  componentDidMount() {
+    window.addEventListener('resize', this.getSvgSize)
+    this.getSvgSize();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.getSvgSize);
+  }
+  getSvgSize() {
+    this.setState({
+      divHeight: document.getElementById(SVG_CONTAINER_NAME).clientHeight,
+      divWidth: document.getElementById(SVG_CONTAINER_NAME).clientWidth,
+    });
+  }
+  handleHoveredLink(id) {
+    const object = R.find(R.propEq('id', id), this.props.objects);
+    const coefficient = this.state.divWidth / this.props.width;
+    console.log(coefficient);
+    return (
+      <DisplayInfo
+        left={object.left}
+        top={object.top}
+        imageWidth={this.props.width}
+        imageHeight={this.props.height}
+        data={object}
+        coefficient={coefficient}
+      />
+    );
   }
   handleMouseEnterPoint(e, id) {
     this.setState({
@@ -31,32 +59,19 @@ class InfoLayer extends React.Component {
       yPos: e.clientY,
     });
   }
-  handleHoveredLink() {
-    if (this.props.isHoveringActive) {
-      const findHoveredObject = R.find(R.propEq('id', this.props.hoveringOn), this.props.objects)
-      return (
-        <DisplayInfo
-          left={(findHoveredObject.left * this.props.coefficient) - 200}
-          top={(findHoveredObject.top * this.props.coefficient) - 200}
-          width={this.props.width}
-          height={this.props.height}
-          data={findHoveredObject}
-          coefficient={this.props.coefficient}
-        />
-      );
-    }
-    return null;
+  handleMouseLeavePoint(e) {
+    this.setState({ isTooltipVisible: false, infoId: undefined });
   }
-
   render() {
     const { style, width, height, objects, coefficient } = this.props;
     const { xPos, yPos } = this.state;
     return (
-      <div>
+      <div className="wrapperInfo">
         <svg
           style={style}
           width={width}
           height={height}
+          id={SVG_CONTAINER_NAME}
         >
           {objects.map((object) => (
             <Link key={object.id} to={`/building/${object.id}`}>
@@ -74,22 +89,16 @@ class InfoLayer extends React.Component {
             </Link>
           ))}
         </svg>
-        {
-          this.state.isTooltipVisible
-            ? <DisplayInfo
-              left={xPos}
-              top={yPos}
-              width={width}
-              height={height}
-              data={R.find(R.propEq('id', this.state.infoId), objects)}
-              coefficient={coefficient}
-            />
+        <div className="tooltipLayer" style={{height: this.state.divHeight}}>
+          {this.state.isTooltipVisible
+            ? this.handleHoveredLink(this.state.infoId)
             : null
-        }
-        {this.props.isHoveringActive
-          ? this.handleHoveredLink()
-          : null
-        }
+          }
+          {this.props.isHoveringActive
+            ? this.handleHoveredLink(this.props.hoveringOn)
+            : null
+          }
+        </div>
       </div>
     );
   }

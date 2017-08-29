@@ -34,6 +34,7 @@ class InfoPoint extends React.Component {
       <g
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
+        style={{zIndex: 5}}
       >
         <circle
           cx={left}

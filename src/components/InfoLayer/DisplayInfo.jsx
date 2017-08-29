@@ -4,27 +4,14 @@ import Warning from './image001.png';
 import ColourResolver from '../../ColourResolver';
 
 const DisplayInfo = (props) => {
-  const { left, top } = props;
-  let originY;
-  let originX;
-  if (top > (50)) {
-    originY = top - 250;
-  } else {
-    originY = top + 0;
-  }
-
-  if (left > (50)) {
-    originX = left - 338;
-  } else {
-    originX = left + 38;
-  }
   const { img, name, group, height } = props.data;
+  const {left, top} = props;
   return (
     <div
       style={{
-        position: 'fixed',
-        left: originX,
-        top: originY,
+        position: 'absolute',
+        left: `${(left * props.scaleCoefficient)}px`,
+        top: `${(top * props.scaleCoefficient)}px`,
         borderStyle: 'solid',
         borderWidth: '2px',
         padding: '10px',
@@ -33,6 +20,7 @@ const DisplayInfo = (props) => {
         borderRadius: '10px',
         borderColor: ColourResolver(group),
         boxShadow: '5px',
+        zIndex: 100,
       }}
     >
       <h3>
