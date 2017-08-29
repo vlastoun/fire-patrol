@@ -7,13 +7,13 @@ const DisplayInfo = (props) => {
   const { left, top } = props;
   let originY;
   let originX;
-  if (top > (window.innerHeight / 2)) {
+  if (top > (50)) {
     originY = top - 250;
   } else {
     originY = top + 0;
   }
 
-  if (left > (window.innerWidth / 2)) {
+  if (left > (50)) {
     originX = left - 338;
   } else {
     originX = left + 38;

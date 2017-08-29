@@ -18,8 +18,11 @@ class InfoLayer extends React.Component {
     };
     this.handleMouseEnterPoint = this.handleMouseEnterPoint.bind(this);
     this.handleMouseLeavePoint = this.handleMouseLeavePoint.bind(this);
+    this.handleHoveredLink = this.handleHoveredLink.bind(this);
   }
-
+  handleMouseLeavePoint(e) {
+    this.setState({ isTooltipVisible: false, infoId: undefined });
+  }
   handleMouseEnterPoint(e, id) {
     this.setState({
       isTooltipVisible: true,
@@ -28,9 +31,23 @@ class InfoLayer extends React.Component {
       yPos: e.clientY,
     });
   }
-  handleMouseLeavePoint(e) {
-    this.setState({ isTooltipVisible: false, infoId: undefined });
+  handleHoveredLink() {
+    if (this.props.isHoveringActive) {
+      const findHoveredObject = R.find(R.propEq('id', this.props.hoveringOn), this.props.objects)
+      return (
+        <DisplayInfo
+          left={(findHoveredObject.left * this.props.coefficient) - 200}
+          top={(findHoveredObject.top * this.props.coefficient) - 200}
+          width={this.props.width}
+          height={this.props.height}
+          data={findHoveredObject}
+          coefficient={this.props.coefficient}
+        />
+      );
+    }
+    return null;
   }
+
   render() {
     const { style, width, height, objects, coefficient } = this.props;
     const { xPos, yPos } = this.state;
@@ -68,6 +85,10 @@ class InfoLayer extends React.Component {
               coefficient={coefficient}
             />
             : null
+        }
+        {this.props.isHoveringActive
+          ? this.handleHoveredLink()
+          : null
         }
       </div>
     );
