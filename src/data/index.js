@@ -1,5 +1,6 @@
 import {OBJ_01_PILA} from './PC20/01_PILA1';
 import {OBJ_02_VYKLADKA} from './PC20/02_VYKLADKA';
+import Dummy from './PC20/01.png';
 
 export const groups = [
   {
@@ -19,10 +20,10 @@ export const groups = [
 export const objects = [
   OBJ_01_PILA,
   OBJ_02_VYKLADKA,
-  {id: 3, label: 3, left: 50, top: 50},
-  {id: 4, label: 4, left: 50, top: 1500},
-  {id: 5, label: 5, left: 2400, top: 50},
-  {id: 6, label: 6, left: 2400, top: 1500},
+  {id: 3, label: 3, left: 50, top: 50, img: [Dummy]},
+  {id: 4, label: 4, left: 50, top: 1500, img: [Dummy]},
+  {id: 5, label: 5, left: 2400, top: 50, img: [Dummy]},
+  {id: 6, label: 6, left: 2400, top: 1500, img: [Dummy]},
 ];
 
 export const mockobjects = [{

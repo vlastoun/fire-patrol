@@ -8,8 +8,8 @@ export const OBJ_02_VYKLADKA = {
   so: '20-50.3',
   date: '2015 říjen',
   height: '+0m',
-  latitude: `49.7103325N`,
-  longitude: `18.2952553E`,
+  latitude: `49.7103325`,
+  longitude: `18.2952553`,
   left: 2334,
   top: 1078,
 

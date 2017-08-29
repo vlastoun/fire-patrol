@@ -19,6 +19,7 @@ class InfoLayer extends React.Component {
     this.handleMouseEnterPoint = this.handleMouseEnterPoint.bind(this);
     this.handleMouseLeavePoint = this.handleMouseLeavePoint.bind(this);
   }
+
   handleMouseEnterPoint(e, id) {
     this.setState({
       isTooltipVisible: true,
@@ -50,6 +51,7 @@ class InfoLayer extends React.Component {
                 coefficient={coefficient}
                 handleMouseEnter={this.handleMouseEnterPoint}
                 handleMouseLeave={this.handleMouseLeavePoint}
+                group={object.group}
               />
             </Link>
           ))}
@@ -62,6 +64,7 @@ class InfoLayer extends React.Component {
               width={width}
               height={height}
               data={R.find(R.propEq('id', this.state.infoId), objects)}
+              coefficient={coefficient}
             />
             : null
         }

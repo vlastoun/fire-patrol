@@ -9,6 +9,7 @@ import LaddersMap from '../../components/Map-ladders';
 import BuildingPage from '../BuildingPage';
 import Links from '../../components/Links';
 import BuildingsList from '../../components/BuildingsList';
+import SeznamMapa from '../../components/SeznamMapa';
 
 const App = () => (
   <div>
@@ -19,6 +20,7 @@ const App = () => (
       <Route exact path="/ladders" component={LaddersMap}/>
       <Route exact path="/building/:id" component={BuildingPage} />
       <Route exact path="/buildingslist" component={BuildingsList}/>
+      <Route path="/smap/:long/:lat" component={SeznamMapa}/>
       <Route component={MapPage} />
     </Switch>
   </div>
