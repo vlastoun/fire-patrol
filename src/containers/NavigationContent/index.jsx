@@ -6,6 +6,7 @@ import {NavLink, withRouter} from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
 import { selectGroups, selectObjects } from './selectors';
+import ColourResolver from '../../ColourResolver';
 
 const Heading = styled.div`
   font-weight: bold;
@@ -14,7 +15,7 @@ const Heading = styled.div`
 `;
 
 const Content = styled.div`
-  color: black;
+  color: ${(props) => ColourResolver(props.group)};
   font-size: 1em;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   &:hover{
@@ -36,7 +37,7 @@ const navigationSublist = (objects, id) => {
     <div>
       {sublist.map((object) => (
         <NavLink key={object.id} to={`/building/${object.id}`} exact activeStyle={style.active}>
-          <Content>
+          <Content group={object.group}>
             {object.label} {object.name}
           </Content>
         </NavLink>

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Image } from 'semantic-ui-react';
 import Warning from './image001.png';
+import ColourResolver from '../../ColourResolver';
 
 const DisplayInfo = (props) => {
   const { left, top } = props;
@@ -17,7 +18,7 @@ const DisplayInfo = (props) => {
   } else {
     originX = left + 38;
   }
-  const { img, name } = props.data;
+  const { img, name, group } = props.data;
   return (
     <div
       style={{
@@ -30,6 +31,7 @@ const DisplayInfo = (props) => {
         width: '300px',
         backgroundColor: 'white',
         borderRadius: '10px',
+        borderColor: ColourResolver(group),
         boxShadow: '5px',
       }}
     >

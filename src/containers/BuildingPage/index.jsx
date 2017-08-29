@@ -9,11 +9,7 @@ import styled from 'styled-components';
 import PageTemplate from '../../components/PageTemplate';
 import { selectObjects } from './selectors';
 import MarkdownParser from '../../components/MarkdownParser';
-
-const TH = styled.th`
-  border-style: solid;
-  border-width: 1px;
-`;
+import ColourResolver from '../../ColourResolver';
 
 const headings = {
   arrival: 'Popis příjezdu:',
@@ -34,7 +30,7 @@ const BuildingPage = (props) => {
   return (
     <PageTemplate>
       <div style={{ maxWidth: '650px', float: 'none', margin: 'auto' }}>
-        <Table celled structured style={{ width: '100%' }} color="red">
+        <Table celled structured style={{ width: '100%' }} color={ColourResolver(group)}>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell disabled style={{ maxWidth: '100px' }} rowSpan={2}><span style={{ fontSize: '3em' }}>{label}</span></Table.HeaderCell>
