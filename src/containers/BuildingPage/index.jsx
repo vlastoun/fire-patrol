@@ -18,6 +18,13 @@ const headings = {
   information: 'Informace pro velitele záasahu',
 };
 
+function solveWidth(width) {
+  const windowWidth = window.innerWidth;
+  if (width < windowWidth) {
+    return `${width}px`;
+  }
+  return `${windowWidth}px`;
+}
 
 const BuildingPage = (props) => {
   const id = parseInt(props.match.params.id, 10);
@@ -29,7 +36,7 @@ const BuildingPage = (props) => {
     extinguishings, information, img } = building;
   return (
     <PageTemplate>
-      <div style={{ maxWidth: '650px', float: 'none', margin: 'auto' }}>
+      <div style={{ maxWidth: solveWidth(650), float: 'none', margin: 'auto', paddingBottom: '3em' }}>
         <Table celled structured style={{ width: '100%' }} color={ColourResolver(group)}>
           <Table.Header>
             <Table.Row>
@@ -47,26 +54,28 @@ const BuildingPage = (props) => {
               <Table.HeaderCell>{date}</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
-          <Table.Row>
-            <Table.Cell colSpan={5}>
-              <h2>{headings.arrival.toUpperCase()}</h2>
-              <MarkdownParser data={arrival} />
-              <h2>{headings.objectCharacter.toUpperCase()}</h2>
-              <MarkdownParser data={objectCharacter} />
-              <h2>{headings.extinguishings.toUpperCase()}</h2>
-              <MarkdownParser data={extinguishings} />
-              <h2>{headings.information.toUpperCase()}</h2>
-              <MarkdownParser data={information} />
-            </Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell colSpan={5}>
-              {img.length > 0
-                ? img.map((image) => <Image key={image} src={image} />)
-                : null
-              }
-            </Table.Cell>
-          </Table.Row>
+          <tbody>
+            <Table.Row>
+              <Table.Cell colSpan={5}>
+                <h2>{headings.arrival.toUpperCase()}</h2>
+                <MarkdownParser data={arrival} />
+                <h2>{headings.objectCharacter.toUpperCase()}</h2>
+                <MarkdownParser data={objectCharacter} />
+                <h2>{headings.extinguishings.toUpperCase()}</h2>
+                <MarkdownParser data={extinguishings} />
+                <h2>{headings.information.toUpperCase()}</h2>
+                <MarkdownParser data={information} />
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell colSpan={5}>
+                {img.length > 0
+                  ? img.map((image) => <Image key={image} src={image} />)
+                  : null
+                }
+              </Table.Cell>
+            </Table.Row>
+          </tbody>
         </Table>
       </div>
     </PageTemplate>

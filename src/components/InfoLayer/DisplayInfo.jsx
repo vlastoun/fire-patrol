@@ -18,7 +18,7 @@ const DisplayInfo = (props) => {
   } else {
     originX = left + 38;
   }
-  const { img, name, group } = props.data;
+  const { img, name, group, height } = props.data;
   return (
     <div
       style={{
@@ -40,6 +40,7 @@ const DisplayInfo = (props) => {
           name || 'noname'
         }
       </h3>
+      <p>{height}</p>
       <Image style={{ height: '50px' }} src={Warning} alt="warning" />
       <div>
         {img.length > 0
