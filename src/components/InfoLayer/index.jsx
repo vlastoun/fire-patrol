@@ -21,7 +21,7 @@ class InfoLayer extends React.Component {
       divHeight: undefined,
       divWidth: undefined,
     };
-    this.handleMouseEnterPoint = this.handleMouseEnterPoint.bind(this);
+    this.showInfo = this.showInfo.bind(this);
     this.handleMouseLeavePoint = this.handleMouseLeavePoint.bind(this);
     this.handleHoveredLink = this.handleHoveredLink.bind(this);
     this.getSvgSize = this.getSvgSize.bind(this);
@@ -53,7 +53,7 @@ class InfoLayer extends React.Component {
       />
     );
   }
-  handleMouseEnterPoint(e, id) {
+  showInfo(e, id) {
     this.setState({
       isTooltipVisible: true,
       infoId: id,
@@ -82,7 +82,7 @@ class InfoLayer extends React.Component {
                 id={object.id}
                 label={object.label}
                 coefficient={coefficient}
-                handleMouseEnter={this.handleMouseEnterPoint}
+                handleMouseEnter={this.showInfo}
                 handleMouseLeave={this.handleMouseLeavePoint}
                 group={object.group}
                 isHovered={object.id === this.props.hoveringOn}
