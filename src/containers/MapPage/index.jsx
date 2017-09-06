@@ -1,9 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { createStructuredSelector } from 'reselect';
-import { selectObjects, selectHoveringOn, selectIsHoveringActive } from './selectors';
 import MapLayer from '../../components/MapLayer';
 import InfoLayer from '../../components/InfoLayer';
 import SideNavigation from '../../components/SideNavigation';
@@ -80,12 +77,9 @@ class MapPage extends React.Component {
           />
           <InfoLayer
             style={commonStyle}
-            objects={this.props.objects}
             width={IMG_WIDTH}
             height={IMG_HEIGHT}
             coefficient={this.state.coefficient}
-            hoveringOn={this.props.hoveringOn}
-            isHoveringActive={this.props.isHoveringActive}
           />
           <img width="20%" style={{position: 'absolute', left: '10px', top: '20px', zIndex: -5}} src={Vetrovka} alt="vetrovka"/>
         </Container>
@@ -93,20 +87,4 @@ class MapPage extends React.Component {
     );
   }
 }
-const mapStateToProps = () => createStructuredSelector({
-  objects: selectObjects(),
-  hoveringOn: selectHoveringOn(),
-  isHoveringActive: selectIsHoveringActive(),
-});
-
-MapPage.propTypes = {
-  objects: PropTypes.array.isRequired,
-  hoveringOn: PropTypes.number,
-  isHoveringActive: PropTypes.bool.isRequired,
-};
-
-MapPage.defaultProps = {
-  hoveringOn: undefined,
-};
-
-export default connect(mapStateToProps, null)(MapPage);
+export default MapPage;

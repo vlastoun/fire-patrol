@@ -1,9 +1,12 @@
 import * as React from 'react';
 import * as R from 'ramda';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import {createStructuredSelector} from 'reselect';
 import InfoPoint from './InfoPoint';
 import DisplayInfo from './DisplayInfo';
+import { selectHoveringOn, selectIsHoveringActive, selectObjects} from './selectors';
 
 const SVG_CONTAINER_NAME = 'svgContainerInfoLayer';
 
@@ -115,4 +118,20 @@ InfoLayer.propTypes = {
 InfoLayer.defaultProps = {
   hoveringOn: undefined,
 };
-export default InfoLayer;
+const mapStateToProps = () => createStructuredSelector({
+  objects: selectObjects(),
+  hoveringOn: selectHoveringOn(),
+  isHoveringActive: selectIsHoveringActive(),
+});
+
+InfoLayer.propTypes = {
+  objects: PropTypes.array.isRequired,
+  hoveringOn: PropTypes.number,
+  isHoveringActive: PropTypes.bool.isRequired,
+};
+
+InfoLayer.defaultProps = {
+  hoveringOn: undefined,
+};
+
+export default connect(mapStateToProps, null)(InfoLayer);
