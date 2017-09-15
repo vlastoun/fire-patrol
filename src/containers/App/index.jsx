@@ -9,6 +9,7 @@ import LaddersMap from '../../components/Map-ladders';
 import BuildingPage from '../BuildingPage';
 import Links from '../../components/Links';
 import BuildingsList from '../../components/BuildingsList';
+import AdminPage from '../AdminPage';
 
 const App = () => (
   <div>
@@ -16,6 +17,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={MapPage} />
       <Route exact path="/hydrants" component={HydrantsMap}/>
+      <Route exact path="/admin" component={AdminPage} />
       <Route exact path="/ladders" component={LaddersMap}/>
       <Route exact path="/building/:id" component={BuildingPage} />
       <Route exact path="/buildingslist" component={BuildingsList}/>

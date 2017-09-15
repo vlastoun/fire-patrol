@@ -19,6 +19,7 @@ const Links = () => (
       <Menu.Item as={NavLink} to="/buildingslist">
         Seznam budov
       </Menu.Item>
+      <Menu.Item as={NavLink} to="/admin">Admin</Menu.Item>
     </Container>
   </Menu>
 );
